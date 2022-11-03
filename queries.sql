@@ -41,7 +41,6 @@ Verify that change was made and persists after commit.
 BEGIN TRANSACTION;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
 SELECT * FROM animals;
-
 UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
 SELECT * FROM animals;
 COMMIT;
@@ -49,4 +48,20 @@ SELECT * FROM animals;
 
 BEGIN TRANSACTION;
 DELETE FROM animals;
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
+
+/*
+Inside a transaction:
+Delete all animals born after Jan 1st, 2022.
+Create a savepoint for the transaction.
+Update all animals' weight to be their weight multiplied by -1.
+Rollback to the savepoint
+Update all animals' weights that are negative to be their weight multiplied by -1.
+Commit transaction
+*/
+
+BEGIN TRANSACTION;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 SELECT * FROM animals;
