@@ -8,3 +8,15 @@ CREATE TABLE animals (
     weight_kg decimal
 );
 alter table animals add column species varchar;
+
+/*Create a table named owners with the following columns:
+id: integer (set it as autoincremented PRIMARY KEY)
+full_name: string
+age: integer
+*/
+CREATE TABLE owners(
+    id INT GENERATED ALWAYS AS IDENTITY, 
+    full_name VARCHAR(50), 
+    age INT, 
+    PRIMARY KEY(id)
+    );
