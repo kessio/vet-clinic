@@ -31,3 +31,14 @@ CREATE TABLE species(
     name VARCHAR(50), 
     PRIMARY KEY(id)
     );
+
+    /*
+Modify animals table:
+Make sure that id is set as autoincremented PRIMARY KEY
+Remove column species
+Add column species_id which is a foreign key referencing species table
+Add column owner_id which is a foreign key referencing the owners table
+*/
+ALTER TABLE animals DROP COLUMN species;
+ALTER TABLE animals ADD COLUMN species_id INT REFERENCES species (id);
+ALTER TABLE animals ADD COLUMN owner_id INT REFERENCES owners (id);
