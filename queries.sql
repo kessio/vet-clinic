@@ -69,3 +69,10 @@ SAVEPOINT delete_20220101_dob;
 
 UPDATE animals SET weight_kg=weight_kg*-1;
 SELECT * FROM animals;
+
+ROLLBACK TO delete_20220101_dob;
+SELECT * FROM animals;
+
+UPDATE animals SET weight_kg=weight_kg*-1 where weight_kg< 0;
+SELECT * FROM animals;
+COMMIT;
