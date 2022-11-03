@@ -85,3 +85,6 @@ SELECT COUNT(*) AS ZERO_ESCAPE_ATTEMPTS FROM animals WHERE escape_attempts=0;
 
 -- What is the average weight of animals?
 SELECT AVG(weight_kg) AS AVG_WEIGHT FROM animals;
+
+-- Who escapes the most, neutered or not neutered animals?
+SELECT neutered, SUM(escape_attempts) AS MOST_ESCAPE_ATTEMPTS_GROUP FROM animals GROUP BY neutered;
