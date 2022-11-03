@@ -76,3 +76,6 @@ SELECT * FROM animals;
 UPDATE animals SET weight_kg=weight_kg*-1 where weight_kg< 0;
 SELECT * FROM animals;
 COMMIT;
+
+
+SELECT COUNT(*) AS TOTAL_ANIMALS FROM animals;
