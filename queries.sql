@@ -99,3 +99,12 @@ SELECT species, AVG(escape_attempts) AS AVG_ESCAPE_ATTEMPTS FROM animals WHERE d
 
 -- What animals belong to Melody Pond?
 SELECT name FROM animals JOIN owners ON animals.owner_id = owners.id WHERE owners.full_name='Melody Pond';
+
+--List of all animals that are pokemon (their type is Pokemon).
+SELECT * FROM animals LEFT JOIN species ON animals.species_id=species.id WHERE species.name='Pokemon';
+
+-- List all owners and their animals, remember to include those that don't own any animal.
+SELECT * FROM owners LEFT JOIN animals ON owners.id = animals.owner_id;
+
+/* How many animals are there per species?*/
+SELECT COUNT(a.species_id) AS COUNT_SPECIES, s.name FROM animals a JOIN species s ON a.species_id=s.id GROUP BY s.name, a.species_id;
