@@ -79,3 +79,6 @@ COMMIT;
 
 
 SELECT COUNT(*) AS TOTAL_ANIMALS FROM animals;
+
+-- How many animals have never tried to escape?
+SELECT COUNT(*) AS ZERO_ESCAPE_ATTEMPTS FROM animals WHERE escape_attempts=0;
