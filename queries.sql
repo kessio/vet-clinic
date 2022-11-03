@@ -65,3 +65,7 @@ Commit transaction
 BEGIN TRANSACTION;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 SELECT * FROM animals;
+SAVEPOINT delete_20220101_dob;
+
+UPDATE animals SET weight_kg=weight_kg*-1;
+SELECT * FROM animals;
