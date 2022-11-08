@@ -27,5 +27,14 @@ CREATE INDEX treatment_histories ON medical_histories(id);
 	payed_at TIMESTAMP,
 	medical_history_id INT,
 	FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id)
+	);
 	
+CREATE TABLE invoice_items(
+    id serial PRIMARY KEY, 
+    unit_price DECIMAL, 
+    quantity INT, 
+    total_price DECIMAL,
+    invoice_id INT REFERENCES invoices(id), 
+    item_name VARCHAR(50)
     );
+
