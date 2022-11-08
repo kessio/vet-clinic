@@ -17,3 +17,5 @@ CREATE TABLE treatments(
     type VARCHAR(50),
     name VARCHAR(50)
     );
+    
+CREATE INDEX treatment_histories ON medical_histories(id);
