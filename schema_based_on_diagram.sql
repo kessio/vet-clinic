@@ -19,3 +19,13 @@ CREATE TABLE treatments(
     );
     
 CREATE INDEX treatment_histories ON medical_histories(id);
+
+ CREATE TABLE invoices(
+    id serial PRIMARY KEY, 
+    total_amount decimal,
+    generated_at TIMESTAMP,
+	payed_at TIMESTAMP,
+	medical_history_id INT,
+	FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id)
+	
+    );
