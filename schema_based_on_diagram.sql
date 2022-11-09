@@ -18,7 +18,7 @@ CREATE TABLE treatments(
     name VARCHAR(50)
     );
     
-CREATE INDEX treatment_histories ON medical_histories(id);
+CREATE INDEX index_treatment_histories ON medical_histories(id);
 
  CREATE TABLE invoices(
     id serial PRIMARY KEY, 
@@ -35,6 +35,11 @@ CREATE TABLE invoice_items(
     quantity INT, 
     total_price DECIMAL,
     invoice_id INT REFERENCES invoices(id), 
-    item_name VARCHAR(50)
-    );
+    "treatment_id" INT,
+    FOREIGN KEY (treatment_id) REFERENCES treatments(id),
+    FOREIGN KEY (invoice_id) REFERENCES invoices(id)    
+);
 
+CREATE INDEX index_treatment_id ON invoice_items(treatment_id);
+CREATE INDEX index_invoice_items ON invoice_items(invoice_id);
+CREATE INDEX index_invoices ON invoices(medical_history_id);
