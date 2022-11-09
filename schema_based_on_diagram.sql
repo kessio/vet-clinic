@@ -40,8 +40,8 @@ CREATE TABLE invoice_items(
 );
 
 CREATE TABLE medical_histories_has_treatments (
-    medical_history_id int refrences medical_histories(id),
-    treatment_id int refrences treatments(id),
+    medical_history_id int references medical_histories(id),
+    treatment_id int references treatments(id),
     );
 
 CREATE INDEX index_medical_histories_id ON medical_histories_has_treatments(medical_history_id);
