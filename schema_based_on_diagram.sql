@@ -44,6 +44,8 @@ CREATE TABLE medical_histories_has_treatments (
     treatment_id int refrences treatments(id),
     );
 
+CREATE INDEX medical_histories_has_treatments ON medical_histories(id);
+CREATE INDEX medical_histories_has_treatments ON treatments(id);
 CREATE INDEX index_treatment_histories ON medical_histories(id);
 CREATE INDEX index_treatment_id ON invoice_items(treatment_id);
 CREATE INDEX index_invoice_items ON invoice_items(invoice_id);
